@@ -17,11 +17,12 @@ public class Study4_For {
 				for(int i=0;i<30;i++) {
 					System.out.println("탕");
 				}
-			}else {
+			}else if(mode == 2){
 				for(int i=0;i<10;i++) {
 					System.out.println("탕탕탕");
 				}
-			}			
+			}
 		}
+		System.out.println("끝");
 	}
 }
