@@ -15,16 +15,19 @@ public class Study3_For {
 		// 0~59초
 		// 1분 5초
 		// 분, 초 입력
+		boolean flag = false;
 		int m = sc.nextInt();
 		int s = sc.nextInt();
 		for(int i=0;i<60;i++) {
 			for(int j=0;j<60;j++) {
-				if(s == j) {
+				System.out.println(i+"분 :"+j+"초");
+				if(s == j && i == m) {
+					flag = true;
 					break;
 				}
 			}
-			if(m == i) {
-				
+			if(flag) {
+				break;
 			}
 		}
 		
