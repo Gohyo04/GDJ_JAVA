@@ -8,7 +8,5 @@ public class SchoolMain {
 		SchoolController controller = new SchoolController();
 		
 		controller.start();
-		
-		
 	}
 }
