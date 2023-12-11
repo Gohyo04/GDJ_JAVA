@@ -4,5 +4,5 @@ public class Student {
 	
 	String name;
 	int num;
-	int jumsu;
+	double jumsu;
 }

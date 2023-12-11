@@ -21,7 +21,7 @@ public class SchoolService {
 			System.out.println("학생"+(i+1)+" 번호 : ");
 			student.num = sc.nextInt();
 			System.out.println("학생"+(i+1)+" 점수 : ");
-			student.jumsu = sc.nextInt();
+			student.jumsu = sc.nextDouble();
 			students[i] = student;
 		}
 		return students;

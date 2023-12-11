@@ -14,6 +14,9 @@ public class SchoolController {
 		// 생성된 student객체를 담아줄 배열선언(초기화)
 		Student[] students = null;
 		
+		// 학생정보를 출력하는 메서드가있는 view 
+		SchoolView schoolView = new SchoolView();
+		
 		while(check) {
 			System.out.println("1. 학생정보입력 : ");
 			System.out.println("2. 학생정보출력 : ");
@@ -30,6 +33,7 @@ public class SchoolController {
 				students = schoolService.makeStudents();
 				break;
 			case 2:
+				schoolView.view(students);
 				break;
 			case 3:
 				break;
@@ -41,15 +45,5 @@ public class SchoolController {
 				break;
 			}
 		}
-	}
-
-	private void schoolService() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private void scMain() {
-		// TODO Auto-generated method stub
-		
 	}
 }
