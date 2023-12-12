@@ -1,21 +1,32 @@
 package com.gohyo.study3.rpg;
 
-public class Magiction {
+public class Magiction extends Character{
 
-	String name;
-	int hp;
-	int mp;
+	private int mp;
 	
+	
+	
+	public int getMp() {
+		return mp;
+	}
+
+	public void setMp(int mp) {
+		this.mp = mp;
+	}
+
 	public void info() {
-		// 멤버메서드내에서 멤버변수를 접근해서 사용 가능
-		//name = "iu";
-		System.out.println(this);
-		System.out.println("Name :"+name);
-		System.out.println("Hp :"+this.hp);
-		this.t1();
+		super.superInfo();
+//		System.out.println(this.getName());
+//		System.out.println(this.getHp());
+		System.out.println(this.getMp());
 	}
 	
 	public void t1() {
 		System.out.println("Test 메서드입니다.");
+	}
+
+	@Override
+	public void attack() {
+		System.out.println("마법공격");
 	}
 }
