@@ -36,8 +36,15 @@ public class SchoolController {
 				schoolView.view(students);
 				break;
 			case 3:
+				Student s = schoolService.findByNum(students);
+				if(s != null) {
+					schoolView.view(s);
+				}else {
+					schoolView.view("없는 학생입니다.");
+				}
 				break;
 			case 4:
+				schoolService.addStudent(students);
 				break;
 			default:
 				System.out.println("프로그램종료");
