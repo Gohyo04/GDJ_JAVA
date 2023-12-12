@@ -44,7 +44,7 @@ public class SchoolController {
 				}
 				break;
 			case 4:
-				schoolService.addStudent(students);
+				students = schoolService.addStudent(students);
 				break;
 			default:
 				System.out.println("프로그램종료");

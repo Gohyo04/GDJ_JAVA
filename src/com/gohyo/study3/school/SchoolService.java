@@ -10,7 +10,7 @@ public class SchoolService {
 	public Student[] addStudent(Student[] students) {
 		Scanner sc = new Scanner(System.in);
 		Student student = new Student();
-		Student[] arr = students;
+		Student[] arr = new Student[students.length+1];
 		System.out.println(Arrays.toString(arr));
 		System.out.println("이름 : ");
 		student.name = sc.next();
@@ -18,9 +18,10 @@ public class SchoolService {
 		student.num = sc.nextInt();
 		System.out.println("점수 : ");
 		student.jumsu = sc.nextDouble();
-		//students[students.length+1] = student;
-		
-		arr[students.length+1] = student;
+		for(int i=0;i<students.length;i++) {
+			arr[i] = students[i];
+		}
+		arr[students.length] = student;
 		return arr;
 	}
 	
