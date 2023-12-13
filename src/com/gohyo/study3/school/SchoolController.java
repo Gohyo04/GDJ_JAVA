@@ -24,8 +24,6 @@ public class SchoolController {
 			System.out.println("4. 학생정보추가 : ");
 			System.out.println("5. 학생정보종료 : ");
 			
-			
-			
 			int select = sc.nextInt();
 			switch(select) {
 			case 1:
