@@ -31,9 +31,9 @@ public class StudentConroller {
 			}else if(select == 2) {
 				studentView.view(studentService.findByName(ar));
 			}else if(select == 3) {
-				
+				studentService.studentAdd();
 			}else if(select == 4) {
-				
+				studentService.studentDelete();
 			}else {
 				System.out.println("프로그램을 종료합니다.");
 				break;

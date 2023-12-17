@@ -1,6 +1,7 @@
 package com.gohyo.study4.util.ex1;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -16,12 +17,12 @@ public class StudentService {
 	}
 	
 	Scanner sc = new Scanner(System.in);
+	ArrayList<Student> students = new ArrayList<Student>();
 	
 	//init
 	//info 파싱
 	public ArrayList<Student> init() {
 		StringTokenizer st = new StringTokenizer(this.info,"-");
-		ArrayList<Student> students = new ArrayList<Student>();
 		while(st.hasMoreTokens()) {
 			Student student = new Student();
 			student.setName(st.nextToken());
@@ -46,7 +47,7 @@ public class StudentService {
 		System.out.println("찾을사람: ");
 		String name = sc.next();
 		for(int i=0;i<s.size();i++) {
-			if(s.contains(s.get(i).getName())) {
+			if(name.contains(s.get(i).getName())) {
 				return s.get(i);
 			}
 		}
@@ -55,6 +56,40 @@ public class StudentService {
 	
 	
 	// 학생정보추가 studentAdd
+	public ArrayList<Student> studentAdd() {
+		Student student = new Student();
+		System.out.println("번호 : ");
+		student.setNumber(sc.nextInt());
+		System.out.println("이름 : ");
+		student.setName(sc.next());
+		System.out.println("국어 : ");
+		int kor = sc.nextInt();
+		student.setKorean(kor);
+		System.out.println("영어 : ");
+		int eng = sc.nextInt();
+		student.setEnglish(eng);
+		System.out.println("수학 : ");
+		int math = sc.nextInt();
+		student.setMath(math);
+		student.setSum(math + eng + kor);
+		student.setAverage(student.getSum()/3.0);
+		students.add(student);
+		return students;
+	}
 	
 	// 학생정보삭제 studentDelete -> 이름으로 검색 후 삭제
+	public void studentDelete() {
+		System.out.println("삭제할 학생 : ");
+		String del = sc.next();
+		int c = 0;
+		for(int i=0;i<students.size();i++) {
+			if(del.contains(students.get(i).getName())) {
+				students.remove(i);
+				c = 1;
+			}
+			if(c != 1 && students.size() == i+1) {
+				System.out.println("없는학생입니다.");
+			}
+		}
+	}
 }
