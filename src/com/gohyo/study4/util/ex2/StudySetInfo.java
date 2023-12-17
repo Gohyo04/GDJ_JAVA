@@ -1,6 +1,7 @@
 package com.gohyo.study4.util.ex2;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -11,19 +12,20 @@ public class StudySetInfo {
 	// 1 ~ 45, 6개
 	Random random = new Random();
 	
+  	// 번호 생성
+	int[] arr = new int[6];
 	public int[] ex0() {
-		int cnt = 1;
-		int[] arr = new int[6];
-		arr[0] = random.nextInt(45)+1;
-		while(cnt < 6){
+		for(int j=0;j<arr.length;j++){
 			int n = random.nextInt(45)+1;
-			for(int i=0;i<arr.length;i++){
-				if(arr[i] != n) {
-					arr[cnt] = n;
+			arr[j] = n;
+			for(int i=0;i<j;i++){
+				if(arr[j] == arr[i]) {
+					j--;
+					break;
 				}
 			}
-			cnt++;
 		}
+		Arrays.sort(arr);
 		return arr;
 	}
 	

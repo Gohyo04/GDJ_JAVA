@@ -7,7 +7,7 @@ public class Ex2Main {
 	public static void main(String[] args) {
 		Random random = new Random();
 		int num = random.nextInt(10);	// 0 ~ 10 미만
-		System.out.println(num);
+//		System.out.println(num);
 		
 		StudySetInfo ssi = new StudySetInfo();
 		System.out.println(Arrays.toString(ssi.ex0()));
