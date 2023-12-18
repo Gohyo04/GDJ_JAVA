@@ -10,6 +10,9 @@ public class StudyMap {
 		
 		map.put("k1", 1);
 		map.put("k2", 2);
+		
+		map.put("k1", 200);
+		
 		System.out.println(map);
 		
 		Integer n = map.get("k2");

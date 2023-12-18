@@ -56,7 +56,7 @@ public class StudentService {
 	
 	
 	// 학생정보추가 studentAdd
-	public ArrayList<Student> studentAdd() {
+	public void studentAdd() {
 		Student student = new Student();
 		System.out.println("번호 : ");
 		student.setNumber(sc.nextInt());
@@ -74,7 +74,6 @@ public class StudentService {
 		student.setSum(math + eng + kor);
 		student.setAverage(student.getSum()/3.0);
 		students.add(student);
-		return students;
 	}
 	
 	// 학생정보삭제 studentDelete -> 이름으로 검색 후 삭제
