@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.StringTokenizer;
 
 public class WeatherDAO {
 	// DAO : Data Access Object ( 데이터 접근 클래스 )
@@ -17,25 +18,25 @@ public class WeatherDAO {
 		BufferedReader br = new BufferedReader(fr);
 		ArrayList<WeatherDTO> wlist = new ArrayList<>();
 		
+		br.readLine();
 		while(true) {
 			// 1. 파일의 내용을 한줄씩 읽어오기
 			String str = br.readLine();
+			// 2. 한줄의 내용을 파싱
 			if(str == null) {
 				break;
-			}else if(!str.contains("##")){
-				// 2. 한줄의 내용을 파싱
-				String[] strArr = str.split("-");
-				System.out.println(Arrays.toString(strArr));
-				// 3. 파싱한 토큰을 DTO에 생성하고 멤버변수에 대입
-				int cnt = 0;
-				WeatherDTO wdto = new WeatherDTO();
-				wdto.setCity(strArr[cnt]);
-				wdto.setOndo(strArr[cnt+1]);
-				wdto.setwInfo(strArr[cnt+2]);
-				wdto.setWater(strArr[cnt+3]);
-				// 4. DTO를 List에 추가
-				wlist.add(wdto);
 			}
+			StringTokenizer st = new StringTokenizer(str,"-");
+			// 3. 파싱한 토큰을 DTO에 생성하고 멤버변수에 대입
+			WeatherDTO wdto = new WeatherDTO();
+			wdto.setCity(st.nextToken());
+			wdto.setOndo(Integer.parseInt(st.nextToken()));
+			wdto.setwInfo(st.nextToken());
+			wdto.setHum(Integer.parseInt(st.nextToken()));
+			
+			// 4. DTO를 List에 추가
+			wlist.add(wdto);
+			
 		}
 		br.close();
 		fr.close();

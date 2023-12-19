@@ -3,9 +3,9 @@ package com.gohyo.study6.ex1;
 public class WeatherDTO {
 
 	private String city;
-	private String ondo;
+	private int ondo;
 	private String wInfo;
-	private String water;
+	private int hum;
 	
 	public String getCity() {
 		return city;
@@ -13,10 +13,10 @@ public class WeatherDTO {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public String getOndo() {
+	public int getOndo() {
 		return ondo;
 	}
-	public void setOndo(String ondo) {
+	public void setOndo(int ondo) {
 		this.ondo = ondo;
 	}
 	public String getwInfo() {
@@ -25,11 +25,11 @@ public class WeatherDTO {
 	public void setwInfo(String wInfo) {
 		this.wInfo = wInfo;
 	}
-	public String getWater() {
-		return water;
+	public int getHum() {
+		return hum;
 	}
-	public void setWater(String water) {
-		this.water = water;
+	public void setHum(int hum) {
+		this.hum = hum;
 	}
 	
 	
