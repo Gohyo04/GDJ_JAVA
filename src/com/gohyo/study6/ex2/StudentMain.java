@@ -7,6 +7,7 @@ public class StudentMain {
 		StudentDAO dao = new StudentDAO();
 		
 		dao.getStudent();
+		// getStudent()의 return 값이 dto 배열이기때문에
 		ArrayList<StudentDTO> list = dao.getStudent();
 		for(StudentDTO dto : list) {
 			System.out.println(dto.getNum()+". "+dto.getName());
