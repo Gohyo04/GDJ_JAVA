@@ -37,6 +37,9 @@ public class WeatherDAO {
 				wlist.add(wdto);
 			}
 		}
+		br.close();
+		fr.close();
+		
 		// 5. List에 return
 		return wlist;
 	}
