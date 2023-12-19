@@ -24,7 +24,6 @@ public class StudySimpleFormat {
 			// 문자열의 형식이 sd.applyPattern or simpleDateFormat에 등록한 포맷(패턴)과 일치해야 한다.
 			date = sd.parse(d);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.out.println(date);

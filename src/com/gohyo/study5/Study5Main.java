@@ -31,8 +31,9 @@ public class Study5Main {
 		
 		ArrayList<Integer> ar = null;
 		t.t1(ar);
-		}catch(RuntimeException e) {
+		}catch(Throwable e) {
 			System.out.println("Exception 발생");
+			e.printStackTrace();
 		}finally {
 			// 예외가 발생하건 하지않건 실행할 구문
 		}
