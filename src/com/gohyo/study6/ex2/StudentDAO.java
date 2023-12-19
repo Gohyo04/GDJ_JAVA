@@ -41,6 +41,9 @@ public class StudentDAO {
 			//set 한 sdto 객체를 배열에 대입
 			sdtos.add(sdto);
 		}
+		// 안쪽부터 닫아준다.
+		br.close();
+		fr.close();
 		//5. List에 return
 		return sdtos;
 	}
