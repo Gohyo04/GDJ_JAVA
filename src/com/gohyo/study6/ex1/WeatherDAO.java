@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
@@ -106,23 +107,33 @@ public class WeatherDAO {
 //		String day = String.valueOf(calendar.get(calendar.YEAR))+calendar.get(calendar.MONTH)+calendar.get(calendar.DATE);
 //		// 1. 입력받아서 파일에 작성 (파일명 save.txt)
 //		// 읽어올파일 객체
-		String fileName = calendar.getTimeInMillis()+".txt";
-//		String str = fileName.substring(0, fileName.length()-4);
+		String fileName = calendar.getTimeInMillis()+""+WeatherDAO.count+".txt";
+		String route = "C:\\study\\weather";
+		String fullRoute = route+"\\"+fileName;
+		// 위로 설정한 경로에 파일 생성
+		File file = new File(fullRoute);
+		File fileList = new File(route);
 		
-		File list = new File("C:\\study\\weather");
-		File file = new File("C:\\study\\weather\\"+fileName);
-		
-		File[] arr = list.listFiles();
-		ArrayList<Long> li = new ArrayList<>();
-		for(File f : arr) {
-			long n = Long.parseLong(f.getName().substring(0,f.getName().length()-4));
-			li.add(n);
+		String[] fileArr = fileList.list();
+		ArrayList<Integer> numArr = new ArrayList<>();
+		for(String s : fileArr) {
+//			int n = Integer.parseInt(s.substring(0, s.length()-4));
+//			numArr.add(n);
 		}
+//		Collections.sort(numArr);
+//		for(int i=0;i<numArr.size()-1;i++) {
+//			System.out.println(numArr.get(i));
+//			String str = route+"\\"+numArr.get(i)+"txt";
+//			File deleteFile = new File(str);
+//			deleteFile.delete();
+//		}
 		
-		for(int i=0;i<li.size()-1;i++) {
-			// !!!!!!!!!!!!!
-//			file.delete(list.getPath());
-		}
+		
+//		System.out.println(a);
+//		for(String s : arr) {
+//			System.out.println(s.substring(s.length()-4, s.length()));
+//			
+//		}
 		
 		FileWriter fw = new FileWriter(file,false);
 		FileReader fr = new FileReader(file);

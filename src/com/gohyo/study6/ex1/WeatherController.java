@@ -37,6 +37,7 @@ public class WeatherController {
 			System.out.println("3. 날씨정보추가");
 			System.out.println("4. 날씨정보삭제");
 			System.out.println("5. 날씨정보저장");
+			System.out.println("6. 종료");
 			try {
 				int select = sc.nextInt();
 				if(select == 1) {
@@ -65,7 +66,7 @@ public class WeatherController {
 				}
 			} catch (Exception e) {
 				System.out.println("잘못입력했습니다.");
-				// 위에서 잘못 입력한것을 한번 빼주는 용도
+//				 위에서 잘못 입력한것을 한번 빼주는 용도
 				System.out.println(sc.next());
 			}
 		}
