@@ -4,11 +4,11 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class StudentDAO {
-	
+	// 추가
 	public ArrayList<StudentDTO> getStudent() throws Exception{
 		// 파일 가져온다
 		File file = new File("C:\\study\\student.txt");
@@ -46,5 +46,17 @@ public class StudentDAO {
 		fr.close();
 		//5. List에 return
 		return sdtos;
+	}
+	
+	// 검색
+	public StudentDTO search(ArrayList<StudentDTO> ar, Scanner sc) {
+		StudentDTO dto = new StudentDTO();
+		String str = sc.next();
+		for(StudentDTO studentDTO : ar) {
+			if(studentDTO.getName().equals(str)) {
+				return studentDTO;
+			}
+		}
+		return null;
 	}
 }

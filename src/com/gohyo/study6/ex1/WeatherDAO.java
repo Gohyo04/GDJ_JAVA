@@ -4,12 +4,20 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class WeatherDAO {
+	private static int count;
+	
+	static {
+		WeatherDAO.count = 0;
+	}
 	// DAO : Data Access Object ( 데이터 접근 클래스 )
 	
 	// getWeathers
@@ -92,11 +100,34 @@ public class WeatherDAO {
 	
 	// 저장
 	public boolean save(List<WeatherDTO> ar, Scanner sc) throws Exception{
-		// 1. 입력받아서 파일에 작성 (파일명 save.txt)
-		// 읽어올파일 객체
-		File file = new File("C:\\study\\save.txt");
+		// 20231220 + count
+		WeatherDAO.count++;
+		Calendar calendar = Calendar.getInstance();
+//		String day = String.valueOf(calendar.get(calendar.YEAR))+calendar.get(calendar.MONTH)+calendar.get(calendar.DATE);
+//		// 1. 입력받아서 파일에 작성 (파일명 save.txt)
+//		// 읽어올파일 객체
+		String fileName = calendar.getTimeInMillis()+".txt";
+//		String str = fileName.substring(0, fileName.length()-4);
+		
+		File list = new File("C:\\study\\weather");
+		File file = new File("C:\\study\\weather\\"+fileName);
+		
+		File[] arr = list.listFiles();
+		ArrayList<Long> li = new ArrayList<>();
+		for(File f : arr) {
+			long n = Long.parseLong(f.getName().substring(0,f.getName().length()-4));
+			li.add(n);
+		}
+		
+		for(int i=0;i<li.size()-1;i++) {
+			// !!!!!!!!!!!!!
+//			file.delete(list.getPath());
+		}
+		
+		FileWriter fw = new FileWriter(file,false);
+		FileReader fr = new FileReader(file);
+		BufferedReader br = new BufferedReader(fr);
 		// 파일을 만들고 내용을 적을 객체
-		FileWriter fw = new FileWriter(file, false);
 		// 2. ## 날씨정보
 		// 첫줄
 		fw.write("## 날씨정보\n");
