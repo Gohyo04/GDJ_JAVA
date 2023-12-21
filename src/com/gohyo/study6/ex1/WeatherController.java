@@ -28,7 +28,7 @@ public class WeatherController {
 
 	public void start() throws Exception{
 		// 한번
-		List<WeatherDTO> ar = weatherDAO.getWeather();
+		List<WeatherDTO> ar = weatherDAO.getWeathers();
 		
 		boolean check = true;
 		while(check) {

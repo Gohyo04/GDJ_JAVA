@@ -23,37 +23,69 @@ public class WeatherDAO {
 	
 	// getWeathers
 	// file 에서 내용을 읽어오는 역할
-	public ArrayList<WeatherDTO> getWeather() throws Exception{
-		File file = new File("C:\\study\\weather.txt");
-		FileReader fr = new FileReader(file);
-		BufferedReader br = new BufferedReader(fr);
-		ArrayList<WeatherDTO> wlist = new ArrayList<>();
+	public ArrayList<WeatherDTO> getWeathers() throws Exception {
 		
-		br.readLine();
-		while(true) {
-			// 1. 파일의 내용을 한줄씩 읽어오기
-			String str = br.readLine();
-			// 2. 한줄의 내용을 파싱
-			if(str == null) {
-				break;
-			}
-			StringTokenizer st = new StringTokenizer(str,"-");
-			// 3. 파싱한 토큰을 DTO에 생성하고 멤버변수에 대입
-			WeatherDTO wdto = new WeatherDTO();
-			wdto.setCity(st.nextToken());
-			wdto.setOndo(Integer.parseInt(st.nextToken()));
-			wdto.setwInfo(st.nextToken());
-			wdto.setHum(Integer.parseInt(st.nextToken()));
-			
-			// 4. DTO를 List에 추가
-			wlist.add(wdto);
-			
+		
+		ArrayList<WeatherDTO> ar = new ArrayList<>();
+		File file = new File("c:\\study\\weather");
+		String [] names = file.list();
+		//long [] name=new long [names.length];
+		//for, while
+		long max=0;
+		
+		String[] a = {"3.txt","1.txt","5.txt"};
+		
+		Arrays.sort(a);
+		for(String n:a) {
+			System.out.println(n);
 		}
-		br.close();
-		fr.close();
 		
-		// 5. List에 return
-		return wlist;
+		for(int i=0;i<names.length;i++) {
+			//split, StringTo, subString, indexOf, lastIndexOf
+//			String [] r = names[i].split(".");
+//			name[i]=r[0];
+//			StringTokenizer st = new StringTokenizer(names[i], ".");
+//			name[i]=st.nextToken();
+			long n= Long.parseLong(names[i].substring(0, names[i].lastIndexOf(".")));
+			max=Math.max(max, n);
+		}
+		
+
+		
+//	
+//		
+//		file = new File(file, max+".txt");
+//		FileReader fr = new FileReader(file);
+//		BufferedReader br = new BufferedReader(fr);
+//		br.readLine();
+//		while(true) {
+//			String s = br.readLine();
+//			if(s ==null) {
+//				break;
+//			}
+//			
+//			//파싱 - split, StringTokenizer
+//			
+//			System.out.println(s);
+//			StringTokenizer st = new StringTokenizer(s, "-");
+//			//서울-12-맑음-60
+//			WeatherDTO weatherDTO = new WeatherDTO();
+//			
+//			weatherDTO.setCity(st.nextToken());
+//			weatherDTO.setGion(Integer.parseInt(st.nextToken()));
+//			weatherDTO.setInfo(st.nextToken());
+//			weatherDTO.setHum(Integer.parseInt(st.nextToken()));
+//			
+//			ar.add(weatherDTO);
+//			
+//		}
+//		
+//		br.close();
+//		fr.close();
+//		
+		
+		return ar;
+		
 	}
 	
 	// 검색
