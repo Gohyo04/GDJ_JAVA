@@ -37,7 +37,7 @@ public class Server {
 			String s = br.readLine();
 			System.out.println("클라이언트에서 받은 메세지 : "+s);
 			
-			System.out.println("클라이언트로 보낼 메세지 : ");
+			System.out.print("클라이언트로 보낼 메세지 : ");
 			String n = scan.next();
 			
 			if(s.equals("exit") && os.equals(null)) {

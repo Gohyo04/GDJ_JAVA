@@ -27,7 +27,7 @@ public class Client {
 		BufferedReader br = null;
 		
 		while(true) {
-			System.out.println("서버로 보낼 메세지를 입력하세요");
+			System.out.print("서버로 보낼 메세지를 입력하세요");
 			String m = sc.next();
 			
 			os = socket.getOutputStream();	// 0 과 1
